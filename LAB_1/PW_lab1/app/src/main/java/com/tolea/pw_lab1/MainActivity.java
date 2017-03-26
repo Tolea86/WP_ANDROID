@@ -2,6 +2,7 @@ package com.tolea.pw_lab1;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -10,6 +11,8 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout mainView;
 
     TextView textCenter;
+
+    Button button1;
 
     String middleText = "Done with Pride and Prejudice by Iuzvac Anatolie";
 
@@ -21,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         mainView = (RelativeLayout) findViewById(R.id.activityMainView);
 
         createMiddleText();
+
+        createTwoButtons();
     }
 
     private void createMiddleText(){
@@ -36,5 +41,16 @@ public class MainActivity extends AppCompatActivity {
         textCenter.setLayoutParams(params);
 
         mainView.addView(textCenter);
+    }
+
+    private void createTwoButtons(){
+        button1 = new Button(this);
+
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams
+                ((int)RelativeLayout.LayoutParams.WRAP_CONTENT, (int) RelativeLayout.LayoutParams.WRAP_CONTENT);
+
+        button1.setText("BUTTON1");
+
+        mainView.addView(button1);
     }
 }
