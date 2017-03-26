@@ -1,7 +1,10 @@
 package com.tolea.pw_lab1;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -13,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     TextView textCenter;
 
     Button button1;
+    Button button2;
 
     String middleText = "Done with Pride and Prejudice by Iuzvac Anatolie";
 
@@ -46,11 +50,30 @@ public class MainActivity extends AppCompatActivity {
     private void createTwoButtons(){
         button1 = new Button(this);
 
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams
-                ((int)RelativeLayout.LayoutParams.WRAP_CONTENT, (int) RelativeLayout.LayoutParams.WRAP_CONTENT);
-
         button1.setText("BUTTON1");
 
         mainView.addView(button1);
+
+        button2 = new Button(this);
+
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams
+                (dpToPx(this, 150), dpToPx(this, 75));
+
+        params.topMargin = dpToPx(this, 50);
+
+        button2.setBackgroundColor(0xff42f48c);
+        button2.setTextColor(0xfff44141);
+        button2.setTextSize(20);
+        button2.setLayoutParams(params);
+        button2.setText("BUTTON2");
+
+        mainView.addView(button2);
+
     }
+
+    public static int dpToPx(Context context, float dipValue) {
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dipValue, metrics));
+    }
+
 }
