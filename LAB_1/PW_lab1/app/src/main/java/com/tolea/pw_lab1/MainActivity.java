@@ -18,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
     Button button1;
     Button button2;
 
+    TextView text1;
+    TextView text2;
+
     String middleText = "Done with Pride and Prejudice by Iuzvac Anatolie";
 
     @Override
@@ -30,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         createMiddleText();
 
         createTwoButtons();
+
+        createTwoTextViews();
     }
 
     private void createMiddleText(){
@@ -69,6 +74,24 @@ public class MainActivity extends AppCompatActivity {
 
         mainView.addView(button2);
 
+    }
+
+    private void createTwoTextViews(){
+        text1 = new TextView(this);
+
+        text1.setText("TEXT1");
+
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+                (int)RelativeLayout.LayoutParams.WRAP_CONTENT,(int) RelativeLayout.LayoutParams.WRAP_CONTENT);
+
+        params.leftMargin = dpToPx(this, 250);
+        params.topMargin = dpToPx(this, 12);
+
+
+        text1.setTextSize((float) 14);
+        text1.setLayoutParams(params);
+
+        mainView.addView(text1);
     }
 
     public static int dpToPx(Context context, float dipValue) {
