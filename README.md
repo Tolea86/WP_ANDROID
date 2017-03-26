@@ -1,6 +1,9 @@
 # WP_ANDROID (Windows Programming)
-Student Iuzvac Anatolie
+## Student 
+Iuzvac Anatolie
 
-Group FAF-151
+## Group 
+FAF-151
 
+## Description
 Android Version of Windows Programming
