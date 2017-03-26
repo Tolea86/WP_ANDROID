@@ -87,11 +87,27 @@ public class MainActivity extends AppCompatActivity {
         params.leftMargin = dpToPx(this, 250);
         params.topMargin = dpToPx(this, 12);
 
-
-        text1.setTextSize((float) 14);
         text1.setLayoutParams(params);
 
         mainView.addView(text1);
+
+        text2 = new TextView(this);
+
+        text2.setText("TEXT2");
+
+        RelativeLayout.LayoutParams params2 = new RelativeLayout.LayoutParams(
+                (int)RelativeLayout.LayoutParams.WRAP_CONTENT,(int) RelativeLayout.LayoutParams.WRAP_CONTENT);
+
+        params2.leftMargin = dpToPx(this, 250);
+        params2.topMargin = dpToPx(this, 75);
+
+        text2.setTextSize(18);
+        text2.setTextColor(0xffffffff);
+        text2.setBackgroundColor(0xff000000);
+        text2.setLayoutParams(params2);
+
+        mainView.addView(text2);
+
     }
 
     public static int dpToPx(Context context, float dipValue) {
