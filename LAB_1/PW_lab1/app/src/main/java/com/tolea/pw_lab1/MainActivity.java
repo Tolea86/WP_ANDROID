@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
         RelativeLayout.LayoutParams params=new RelativeLayout.LayoutParams
                 ((int)RelativeLayout.LayoutParams.WRAP_CONTENT,(int) RelativeLayout.LayoutParams.WRAP_CONTENT);
+        params.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
+        params.addRule(RelativeLayout.TEXT_ALIGNMENT_GRAVITY, RelativeLayout.TEXT_ALIGNMENT_CENTER);
 
         textCenter.setText(middleText);
         textCenter.setTextSize((float) 14);
