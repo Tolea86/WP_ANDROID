@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -56,6 +57,13 @@ public class MainActivity extends AppCompatActivity {
         button1 = new Button(this);
 
         button1.setText("BUTTON1");
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                text1.setText("BUTTON1 CLICKED");
+            }
+        });
 
         mainView.addView(button1);
 
