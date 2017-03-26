@@ -135,4 +135,8 @@ public class MainActivity extends AppCompatActivity {
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dipValue, metrics));
     }
 
+    @Override
+    public void onBackPressed() {
+        textCenter.setText("HOW DARE YOU PRESS BACK BUTTON IN MY APP??");
+    }
 }
