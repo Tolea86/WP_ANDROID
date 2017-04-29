@@ -14,9 +14,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.TimerTask;
 
@@ -27,19 +32,41 @@ public class MainActivity extends AppCompatActivity {
     Button centerButton;
     Button hookKeyboardInputButton;
 
-    Toolbar menuBar;
+    TextView superText;
 
     ProgressDialog dialog = null;
+
+    ListView colorList;
+    SuperAdapter adapter;
+
+    List<ColorObject> colors = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        for(int i = 0; i < 50; i++) {
+            ColorObject tempObject = new ColorObject();
+            Random rnd = new Random();
+            tempObject.setColor(Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)));
+            tempObject.setName("Color #" + i);
+
+            colors.add(tempObject);
+        }
+
         mainView = (RelativeLayout) findViewById(R.id.mainView);
 
         centerButton = (Button) findViewById(R.id.centerButton);
         hookKeyboardInputButton = (Button) findViewById(R.id.hookKeyboardInputButton);
+
+        superText = (TextView) findViewById(R.id.superText);
+
+        colorList = (ListView) findViewById(R.id.colorList);
+        adapter = new SuperAdapter(this);
+
+        adapter.setData(colors);
+        colorList.setAdapter(adapter);
 
         centerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +97,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 InputMethodManager inputMethodManager=(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED,0);
+            }
+        });
+
+        colorList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                superText.setTextColor(colors.get(i).getColor());
             }
         });
     }
@@ -118,6 +152,8 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+
+
 
 
     @Override
