@@ -193,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
                 }, 1000);
 
                 break;
-            case KeyEvent.KEYCODE_SPACE:
+            case KeyEvent.KEYCODE_R:
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(
                         MainActivity.this);
