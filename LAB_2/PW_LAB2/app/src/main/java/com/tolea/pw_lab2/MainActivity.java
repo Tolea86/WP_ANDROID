@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     ProgressDialog dialog = null;
 
     ListView colorList;
+    ListView colorList2;
     SuperAdapter adapter;
 
     List<ColorObject> colors = new ArrayList<>();
@@ -63,10 +64,12 @@ public class MainActivity extends AppCompatActivity {
         superText = (TextView) findViewById(R.id.superText);
 
         colorList = (ListView) findViewById(R.id.colorList);
+        colorList2 = (ListView) findViewById(R.id.colorList2);
         adapter = new SuperAdapter(this);
 
         adapter.setData(colors);
         colorList.setAdapter(adapter);
+        colorList2.setAdapter(adapter);
 
         centerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,6 +107,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 superText.setTextColor(colors.get(i).getColor());
+            }
+        });
+
+        colorList2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Random rnd = new Random();
+                int option = rnd.nextInt(2);
+                if(option == 0){
+                    hookKeyboardInputButton.setBackgroundColor(colors.get(i).getColor());
+                }
+                else{
+                    centerButton.setBackgroundColor(colors.get(i).getColor());
+                }
             }
         });
     }
