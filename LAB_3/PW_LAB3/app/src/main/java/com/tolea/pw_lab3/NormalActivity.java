@@ -2,6 +2,8 @@ package com.tolea.pw_lab3;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.RadialGradient;
@@ -12,6 +14,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.tolea.pw_lab3.CustomViews.CircleDrawViewNormalLevel;
 import com.tolea.pw_lab3.CustomViews.RectangleDrawViewNormalLevel;
@@ -20,6 +24,7 @@ public class NormalActivity extends AppCompatActivity {
 
     Button previousPartButton;
     Button nextPartButton;
+    Button drawBitmapButton;
     Button hookKeyboardButton;
 
     CircleDrawViewNormalLevel circle;
@@ -35,6 +40,7 @@ public class NormalActivity extends AppCompatActivity {
 
         previousPartButton = (Button) findViewById(R.id.previousPartButton);
         nextPartButton = (Button) findViewById(R.id.nextPartButton);
+        drawBitmapButton = (Button) findViewById(R.id.drawBitmapButton);
         hookKeyboardButton = (Button) findViewById(R.id.keyboardHookButton);
 
         circle = (CircleDrawViewNormalLevel) findViewById(R.id.circle);
@@ -55,6 +61,15 @@ public class NormalActivity extends AppCompatActivity {
             }
         });
 
+        drawBitmapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getBitmapByView((RelativeLayout) findViewById(R.id.mainView));
+
+                Toast.makeText(NormalActivity.this, "Bitmap was created successfully!", Toast.LENGTH_LONG);
+            }
+        });
+
         hookKeyboardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,6 +78,14 @@ public class NormalActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public static Bitmap getBitmapByView(RelativeLayout view) {
+        Bitmap bitmap = Bitmap.createBitmap(view.getWidth(),
+                view.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        view.draw(canvas);
+        return bitmap;
     }
 
     @Override
