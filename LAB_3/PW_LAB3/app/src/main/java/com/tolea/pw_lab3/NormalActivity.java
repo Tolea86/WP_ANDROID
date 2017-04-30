@@ -67,7 +67,7 @@ public class NormalActivity extends AppCompatActivity {
             public void onClick(View view) {
                 getBitmapByView((RelativeLayout) findViewById(R.id.mainView));
 
-                Toast.makeText(NormalActivity.this, "Bitmap was created successfully!", Toast.LENGTH_LONG);
+                Toast.makeText(NormalActivity.this, "Bitmap was created successfully!", Toast.LENGTH_LONG).show();
             }
         });
 
