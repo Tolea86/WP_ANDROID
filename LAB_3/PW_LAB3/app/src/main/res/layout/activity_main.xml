@@ -43,9 +43,16 @@
         />
 
     <com.tolea.pw_lab3.BezierDrawView1
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_centerVertical="true"
+        />
+
+    <com.tolea.pw_lab3.BezierDrawView2
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentBottom="true"
         />
 
 </RelativeLayout>
