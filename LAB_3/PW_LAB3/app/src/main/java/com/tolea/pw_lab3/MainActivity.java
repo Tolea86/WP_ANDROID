@@ -1,5 +1,6 @@
 package com.tolea.pw_lab3;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
