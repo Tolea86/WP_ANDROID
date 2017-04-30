@@ -1,4 +1,4 @@
-package com.tolea.pw_lab3;
+package com.tolea.pw_lab3.CustomViews;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -7,30 +7,27 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
-public class DrawView3 extends View {
+public class RectangleDrawView extends View {
     Paint paint = new Paint();
 
-    public DrawView3(Context context) {
+    public RectangleDrawView(Context context) {
         super(context);
         paint.setColor(Color.BLUE);
-        paint.setStrokeWidth(10);
     }
 
-    public DrawView3(Context context, AttributeSet attrs) {
+    public RectangleDrawView(Context context, AttributeSet attrs) {
         super(context, attrs);
         paint.setColor(Color.BLUE);
-        paint.setStrokeWidth(10);
     }
 
-    public DrawView3(Context context, AttributeSet attrs, int defStyle) {
+    public RectangleDrawView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         paint.setColor(Color.BLUE);
-        paint.setStrokeWidth(10);
     }
 
     @Override
     public void onDraw(Canvas canvas) {
-        canvas.drawLine(0, 0, 200, 200, paint);
+        canvas.drawRect(100, 100, 200, 150, paint);
     }
 
 }

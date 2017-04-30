@@ -1,36 +1,36 @@
-package com.tolea.pw_lab3;
+package com.tolea.pw_lab3.CustomViews;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.View;
 
-public class DrawView5 extends View {
+public class OvalDrawView extends View {
     Paint paint = new Paint();
 
-    public DrawView5(Context context) {
+    public OvalDrawView(Context context) {
         super(context);
         paint.setColor(Color.YELLOW);
-        paint.setStrokeWidth(15);
     }
 
-    public DrawView5(Context context, AttributeSet attrs) {
+    public OvalDrawView(Context context, AttributeSet attrs) {
         super(context, attrs);
         paint.setColor(Color.YELLOW);
-        paint.setStrokeWidth(15);
     }
 
-    public DrawView5(Context context, AttributeSet attrs, int defStyle) {
+    public OvalDrawView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         paint.setColor(Color.YELLOW);
-        paint.setStrokeWidth(15);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onDraw(Canvas canvas) {
-        canvas.drawLine(200, 0, 000, 100, paint);
+        canvas.drawOval(50, 50, 250, 150, paint);
     }
 
 }

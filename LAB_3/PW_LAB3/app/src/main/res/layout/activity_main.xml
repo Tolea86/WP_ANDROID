@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     tools:context="com.tolea.pw_lab3.MainActivity">
 
-    <com.tolea.pw_lab3.DrawView
+    <com.tolea.pw_lab3.CustomViews.DrawView
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"
         />
 
-    <com.tolea.pw_lab3.DrawView2
+    <com.tolea.pw_lab3.CustomViews.DrawView2
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="30dp"
@@ -21,20 +21,20 @@
         android:layout_alignParentRight="true"
         />
 
-    <com.tolea.pw_lab3.DrawView3
+    <com.tolea.pw_lab3.CustomViews.DrawView3
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_centerInParent="true"
         />
 
-    <com.tolea.pw_lab3.DrawView4
+    <com.tolea.pw_lab3.CustomViews.DrawView4
         android:layout_width="100dp"
         android:layout_marginTop="10dp"
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
         />
 
-    <com.tolea.pw_lab3.DrawView5
+    <com.tolea.pw_lab3.CustomViews.DrawView5
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
@@ -42,45 +42,55 @@
         android:layout_marginBottom="10dp"
         />
 
-    <com.tolea.pw_lab3.BezierDrawView1
+    <com.tolea.pw_lab3.CustomViews.BezierDrawView1
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_centerVertical="true"
         />
 
-    <com.tolea.pw_lab3.BezierDrawView2
+    <com.tolea.pw_lab3.CustomViews.BezierDrawView2
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_centerVertical="true"
         android:layout_alignParentBottom="true"
         />
 
-    <com.tolea.pw_lab3.CircleDrawView
+    <com.tolea.pw_lab3.CustomViews.CircleDrawView
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginLeft="140dp"
         android:layout_marginTop="75dp"
         />
 
-    <com.tolea.pw_lab3.SquareDrawView
+    <com.tolea.pw_lab3.CustomViews.SquareDrawView
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginLeft="110dp"
         android:layout_marginTop="250dp"
         />
 
-    <com.tolea.pw_lab3.RectangleDrawView
+    <com.tolea.pw_lab3.CustomViews.RectangleDrawView
         android:layout_width="125dp"
         android:layout_height="125dp"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="325dp"
         />
 
-    <com.tolea.pw_lab3.OvalDrawView
+    <com.tolea.pw_lab3.CustomViews.OvalDrawView
         android:layout_width="150dp"
         android:layout_height="125dp"
         android:layout_marginLeft="240dp"
         android:layout_marginTop="325dp"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NEXT PART"
+        android:id="@+id/nextPartButton"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         />
 
 </RelativeLayout>

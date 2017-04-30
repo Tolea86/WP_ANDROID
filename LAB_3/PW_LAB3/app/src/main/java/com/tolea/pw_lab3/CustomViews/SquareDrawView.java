@@ -1,4 +1,4 @@
-package com.tolea.pw_lab3;
+package com.tolea.pw_lab3.CustomViews;
 
 import android.content.Context;
 import android.graphics.Canvas;
