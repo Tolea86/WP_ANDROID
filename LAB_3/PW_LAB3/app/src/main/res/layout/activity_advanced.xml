@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#494949"
+    tools:context="com.tolea.pw_lab3.AdvancedActivity">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BRUSH"
+        android:id="@+id/brushButton"
+        />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ERASER"
+            android:id="@+id/eraserButton"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Brush Size : "
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:id="@+id/fiveSizeButton"
+            />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tenSizeButton"
+                android:text="10"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/fifthteenSizeButton"
+                android:text="15"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.tolea.pw_lab3.CustomViews.DrawingView
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:id="@+id/drawingView"
+        android:background="#FFFFFFFF"
+        android:layout_alignParentBottom="true"
+        />
+
+</RelativeLayout>

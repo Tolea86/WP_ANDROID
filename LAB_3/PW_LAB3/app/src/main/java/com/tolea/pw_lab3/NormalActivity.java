@@ -57,7 +57,8 @@ public class NormalActivity extends AppCompatActivity {
         nextPartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent newIntent = new Intent(NormalActivity.this, AdvancedActivity.class);
+                startActivity(newIntent);
             }
         });
 
