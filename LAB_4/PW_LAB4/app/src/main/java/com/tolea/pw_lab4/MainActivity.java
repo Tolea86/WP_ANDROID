@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Display;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
 import com.tolea.pw_lab4.CustomViews.CircleDrawView;
 import com.tolea.pw_lab4.CustomViews.OvalDrawView;
@@ -13,11 +14,14 @@ import com.tolea.pw_lab4.CustomViews.RectangleDrawView;
 import com.tolea.pw_lab4.CustomViews.SquareDrawView;
 
 import java.util.Random;
+import java.util.Timer;
 import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
     Button startAnimation;
+
+    RelativeLayout clickableArea;
 
     CircleDrawView circle;
     CircleDrawView circle2;
@@ -29,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
     int height;
 
     boolean clicked = false;
+
+    int duration = 200;
+
+    Timer t;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +51,30 @@ public class MainActivity extends AppCompatActivity {
 
         startAnimation = (Button) findViewById(R.id.startButton);
 
+        clickableArea = (RelativeLayout) findViewById(R.id.clickableArea);
+
         startAnimation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startAnimation();
 
                 startAnimation.setVisibility(View.GONE);
+                clickableArea.setVisibility(View.VISIBLE);
             }
         });
+
+        clickableArea.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                duration += 100;
+                t.cancel();
+                t = new java.util.Timer();
+
+                startAnimation();
+            }
+        });
+
+        t = new java.util.Timer();
 
 //        startAnimation();
     }
@@ -59,48 +83,55 @@ public class MainActivity extends AppCompatActivity {
         getSize();
         final Random r = new Random();
 
-        new java.util.Timer().scheduleAtFixedRate(new TimerTask() {
+        t.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                for(int i = 0; i < 5; i++){
-                    int i1 = r.nextInt(width - 300);
-                    int i2 = r.nextInt(height - 300);
 
-                    switch(i){
-                        case 0:
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        for(int i = 0; i < 5; i++){
+                            int i1 = r.nextInt(width - 300);
+                            int i2 = r.nextInt(height - 300);
 
-                            circle.animate().x(i1).setDuration(200);
-                            circle.animate().y(i2).setDuration(200);
+                            switch(i){
+                                case 0:
 
-                            break;
-                        case 1:
+                                    circle.animate().x(i1).setDuration(duration);
+                                    circle.animate().y(i2).setDuration(duration);
 
-                            circle2.animate().x(i1).setDuration(200);
-                            circle2.animate().y(i2).setDuration(200);
+                                    break;
+                                case 1:
 
-                            break;
-                        case 2:
+                                    circle2.animate().x(i1).setDuration(duration);
+                                    circle2.animate().y(i2).setDuration(duration);
 
-                            oval.animate().x(i1).setDuration(200);
-                            oval.animate().y(i2).setDuration(200);
+                                    break;
+                                case 2:
 
-                            break;
-                        case 3:
+                                    oval.animate().x(i1).setDuration(duration);
+                                    oval.animate().y(i2).setDuration(duration);
 
-                            rectangle.animate().x(i1).setDuration(200);
-                            rectangle.animate().y(i2).setDuration(200);
+                                    break;
+                                case 3:
 
-                            break;
-                        case 4:
+                                    rectangle.animate().x(i1).setDuration(duration);
+                                    rectangle.animate().y(i2).setDuration(duration);
 
-                            square.animate().x(i1).setDuration(200);
-                            square.animate().y(i2).setDuration(200);
+                                    break;
+                                case 4:
 
-                            break;
+                                    square.animate().x(i1).setDuration(duration);
+                                    square.animate().y(i2).setDuration(duration);
+
+                                    break;
+                            }
+                        }
                     }
-                }
+                });
+
             }
-        }, 0, 350);
+        }, 0, duration + 50);
 
 
 //        }
@@ -112,5 +143,12 @@ public class MainActivity extends AppCompatActivity {
         display.getSize(size);
         width = size.x;
         height = size.y;
+    }
+
+    @Override
+    public void onBackPressed() {
+        t.cancel();
+
+        startAnimation.setVisibility(View.VISIBLE);
     }
 }

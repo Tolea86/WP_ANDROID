@@ -45,4 +45,11 @@
         android:text="START ANIMATION"
         />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/clickableArea"
+        android:visibility="gone"
+        />
+
 </RelativeLayout>
