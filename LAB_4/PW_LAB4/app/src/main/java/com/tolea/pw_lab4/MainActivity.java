@@ -149,6 +149,9 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         t.cancel();
 
+        duration = 200;
+
         startAnimation.setVisibility(View.VISIBLE);
+        clickableArea.setVisibility(View.GONE);
     }
 }
